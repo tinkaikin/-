@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>构造类传类</title>
+</head>
+<body>
+    <script>
+        function 餐厅(名字) {
+            this.名字 = 名字;
+            this.在店人数 = [];
+        }
+        餐厅.prototype.做饭 = function(顾客, 饭菜) {
+            alert(this.名字 + "正在为" + 顾客 + "制作" + 饭菜)
+        }
+        餐厅.prototype.打烊 = function() {
+            for (const key in this.在店人数) {
+                alert( this.在店人数[key].名字 + '走了');
+            }
+            this.在店人数 = [];
+            alert('在店人数'+ this.在店人数.length + '人');
+        }
+
+        // ===================
+
+        function 人(名字) {
+            this.名字 = 名字;
+            this.我的餐厅 = null;
+        } 
+        人.prototype.进入 = function(餐厅) {
+            this.我的餐厅 = 餐厅;
+            this.我的餐厅.在店人数.push(this);
+            alert(this.名字 + '进入' + this.我的餐厅.名字 + '了')
+            return this;
+        }
+        人.prototype.点餐 = function(菜名) {
+            this.我的餐厅.做饭(this.名字, 菜名);
+            return this;
+        }
+
+        var kfc = new 餐厅('kfc');
+        var 包子铺 = new 餐厅('包子铺');
+
+        var 小明 = new 人('小明');
+        小明.进入(kfc).点餐('鸡腿汉堡').进入(包子铺).点餐('小笼包');
+
+        var 小王 = new 人('小王');
+        小王.进入(kfc).点餐('香辣鸡腿堡');
+
+        kfc.打烊();
+
+    </script>
+</body>
+</html>
