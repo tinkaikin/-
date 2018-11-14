@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../Ajax请求代码/ajax请求.js"></script>
+</head>
+<body>
+
+</body>
+<script>
+    
+    let url = 'http://m.ctrip.com/restapi/h5api/searchapp/search?action=autocomplete&source=globalonline&keyword=2';
+    
+    // function ajax跨域() {
+    //     ajaxqq('get',url,数据,function(data){
+    //         console.log(data)
+    //     })
+        
+    //     function json1(date) {
+    //         console.log(date)
+
+    //     }
+    // }
+    // ajax跨域()
+
+
+    function 简单点(url) {
+        let xhr = createXHR();
+        xhr.open('get',url)
+        xhr.send(null)
+        xhr.onreadstatechange = function() {
+            if(xhr.readState == 4 && xhr.status == 200){
+                alert("成功");
+                let data = eval("("+ xhr.responseXML +")")
+                console.log(data);
+            }
+        }
+    }
+    简单点(url);
+</script>
+</html>

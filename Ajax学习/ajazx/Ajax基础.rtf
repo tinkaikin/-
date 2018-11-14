@@ -1,0 +1,92 @@
+{\rtf1\ansi\ansicpg936\deff0\nouicompat{\fonttbl{\f0\fnil\fcharset134 \'cb\'ce\'cc\'e5;}}
+{\colortbl ;\red255\green0\blue0;\red0\green255\blue255;\red0\green0\blue255;}
+{\*\generator Riched20 10.0.14393}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang2052 1.  \cf1 new XMLHttpRequest();\par
+\cf0 2.  \cf1 xhr.open\cf0 ("get",url,\'d2\'ec\'b2\'bd);\par
+3.  \cf1 xhr.send(null);\par
+\cf0 4.  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");\par
+5.  \cf1 xhr.onreadystatechange \cf0 = function() \{\par
+6.  if(\cf1 xhr.readyState == 4)\cf0\{\par
+            if((\cf1 xhr.status >= 200 && xhr.status < 300\cf0 ) || \cf1 xhr.status == 304\cf0 )\{\par
+7. let v = JSON.parse(\cf1 xhr.responseText\cf0 )\par
+                    \'ba\'af\'ca\'fd\'bb\'d8\'b5\'f7(v);\par
+\'bb\'f9\'b1\'be\'b5\'c4/\'c6\'e4\'cb\'fb\'b5\'c4\par
+\highlight2\'d2\'bb.XMLHttpRequest 2\'bc\'b6\highlight0\par
+\tab .FormData  //\'b1\'ed\'b5\'a52\'bc\'b6\par
+\tab .\'b3\'ac\'ca\'b1\'c9\'e8\'b6\'a8  //Timeout\par
+\tab\tab\'bf\'b4\'b4\'fa\'c2\'eb\'c7\'f8\par
+\tab .xhr.overrideMimeType('text/xml')\'b7\'bd\'b7\'a8   //\'d6\'d8\'d0\'b4MIME\'c0\'e0\'d0\'cd   \fs18\'c7\'bf\'c6\'c8\'bf\'c9\'d2\'d4\'ca\'b9\'d3\'c3\'c0\'a8\'ba\'c5\'c0\'ef\tab\'c3\'e6\'b5\'c4\'c0\'e0\'d0\'cd\par
+\highlight2\fs20\'b6\'fe.\'bd\'f8\'b6\'c8\'ca\'c2\'bc\'fe  \fs18 //\'d3\'d06\'b8\'f6\'bd\'f8\'b6\'c8\'ca\'c2\'bc\'fe\par
+\highlight0\tab\cf1 1.loadstart  \cf0 :\'bd\'d3\'ca\'d5\'b5\'da\'d2\'bb\'b8\'f6\'d7\'d6\'bd\'da\'ca\'b1\'b4\'a5\'b7\'a2\par
+\tab\cf1 2.progess \cf0 :\'bd\'d3\'ca\'d5\'c6\'da\'bc\'e4\'b3\'d6\'d0\'f8\'b2\'bb\'b6\'cf\'b5\'d8\'b4\'a5\'b7\'a2\par
+\tab\cf1 3.error \cf0 : \'b7\'a2\'c9\'fa\'b4\'ed\'ce\'f3\'ca\'b1\'b4\'a5\'b7\'a2\par
+\tab\cf1 4.abort \cf0 :\'b5\'f7\'d3\'c3abort()\'b7\'bd\'b7\'a8\'b6\'f8\'d6\'d5\'d6\'b9\'ca\'b1\'b4\'a5\'b7\'a2\par
+\tab\cf1 5.load \cf0 :\'bd\'d3\'ca\'d5\'cd\'ea\'d5\'fb\'b5\'c4\'cf\'ec\'d3\'a6\'ca\'fd\'be\'dd\'ca\'b1\'b4\'a5\'b7\'a2  \'b5\'c8\'d3\'da readystate == 4\par
+\tab\cf1 6.loadend \cf0 :\'cd\'a8\'d0\'c5\'bd\'e1\'ca\'f8\'ba\'f3\'b4\'a5\'b7\'a2,\'b0\'fc\'c0\'a8error,abort,load \'ca\'c2\'bc\'fe\'ba\'f3\par
+\fs20\tab ----------------\par
+\tab\tab\fs18 2\cf1 .progess \cf0\'cb\'b5\'c3\'f7: onprogess\'b5\'c4event.target == XHR ,\'b5\'ab\'bb\'b9\'b6\'ee\'cd\'e2\'b0\'fc\'ba\'ac\'c8\'fd\'b8\'f6\'ca\'f4\'d0\'d4\cf1 :\par
+\tab\tab\tab\cf0 event.lengthComputable\cf1\tab\tab\cf0 //\'bd\'f8\'b6\'c8\'d0\'c5\'cf\'a2\'bf\'c9\'d3\'c3? \'b2\'bc\'b6\'fb\'d6\'b5\par
+\tab\tab\tab event.position\tab\tab\tab //\'d2\'d1\'be\'ad\'bd\'d3\'ca\'d5\'b5\'c4\'d7\'d6\'bd\'da\'ca\'fd\par
+\tab\tab\tab event.totaalSize\tab\tab //\'d4\'a4\'c6\'da\'b5\'c4\'d7\'dc\'d7\'d6\'bd\'da\'ca\'fd\par
+\fs22\tab\tab\tab\'c7\'bf\'b5\'f7\'d2\'bb\'cf\'c2\'d2\'aa\'d4\'da open\'c7\'b0\'b5\'f7\'d3\'c3\par
+\highlight2\'c8\'fd.\'bf\'e7\'d3\'f2\'d7\'ca\'d4\'b4\'b9\'b2\'cf\'edCORS\highlight0\par
+\tab .IE\'b5\'c4cors\tab\'d3\'c3\'d0\'c2\'b5\'c4XDR = new XDomainRequest  \'d2\'b2\'d3\'d0open() ,send() ,onload \par
+\tab\tab\tab\'b7\'b5\'bb\'d8\'d6\'b5 xdr.responseText   \'ca\'a7\'b0\'dc onerror xdr.abort()\par
+\tab\tab\tab xdr.timeout  xdr.ontimeout  \'b5\'c8\'b5\'c8...\par
+\tab .\'c6\'e4\'cb\'fb\'e4\'af\'c0\'c0\'c6\'f7\'b5\'c4cors\par
+\tab\tab\'bb\'b9\'ca\'c7\'d3\'c3 XMLHttpRequest \'b8\'fa\'cd\'ac\'d4\'b4\'c7\'eb\'c7\'f3\'d2\'bb\'d1\'f9\'d0\'b4\'b7\'a8 \par
+\tab\tab\'bf\'e7\'d3\'f2\'c7\'e9\'bf\'f6\'cf\'c2\'d3\'d0\'bc\'b8\'b8\'f6\'cf\'de\'d6\'c6\par
+\tab\tab\tab 1.\'b2\'bb\'c4\'dc\'ca\'b9\'d3\'c3 xhr.setRequestHeader\par
+\tab\tab\tab 2.\'b2\'bb\'c4\'dc\'b7\'a2\'cb\'cd\'ba\'cd\'bd\'d3\'ca\'d5 cookie\par
+\tab\tab\tab 3.\'b5\'f7\'d3\'c3getAllResponseHeaders()\'b7\'bd\'b7\'a8\'b7\'b5\'bb\'d8\'bf\'d5\'d7\'d6\'b7\'fb\'b4\'ae\par
+\tab .Preflighted Requests //\'cd\'b8\'c3\'f7\'b7\'fe\'ce\'f1\'c6\'f7\'d1\'e9\'d6\'a4\'bb\'fa\'d6\'c6\'d6\'a7\'b3\'d6\'bf\'aa\'b7\'a2\'d5\'df\'ca\'b9\'d3\'c3\'d7\'d4\'b6\'a8\'d2\'e5\'b5\'c4\'cd\'b7\'b2\'bf\par
+\tab\tab\'b2\'bb\'bb\'e1\'d3\'c3>?\par
+\tab .\'b4\'f8\'c6\'be\'be\'dd\'b5\'c4\'c7\'eb\'c7\'f3 //\'c4\'ac\'c8\'cf\'ca\'c7\'b2\'bb\'b4\'f8\'c6\'be\'be\'dd  \par
+\tab\tab withCredentials \'ca\'f4\'d0\'d4\'c9\'e8\'d6\'c3\'ce\'aa true\par
+\tab\tab\'d3\'d0\'c9\'b6\'d3\'c3>?\par
+\tab .\'bf\'e7\'e4\'af\'c0\'c0\'c6\'f7\'b5\'c4 CORS\tab //\'cb\'f9\'d3\'d0\'e4\'af\'c0\'c0\'c6\'f7\'b5\'c4\'d6\'a7\'b3\'d6\'bc\'f2\'b5\'a5\'b5\'c4Cors\'c7\'eb\'c7\'f3 ,\'d6\'bb\'ca\'c7\'d6\'a7\'b3\'d6\'b3\'cc\'b6\'c8\'b2\'bb\'d2\'bb\'d1\'f9\par
+\tab\tab\'c5\'aa\'b8\'f6\'bc\'e6\'c8\'dd\'cb\'f9\'d3\'d0\'e4\'af\'c0\'c0\'c6\'f7\'b5\'c4 cors\par
+\tab\tab\'bf\'b4\'b4\'fa\'c2\'eb\'c7\'f8,\'bf\'c9\'d2\'d4\'d4\'da\'b1\'be\'b5\'d8\'b7\'c3\'ce\'ca\par
+\highlight2\'cb\'c4.\'c6\'e4\'cb\'fb\'bf\'e7\'d3\'f2\'bc\'bc\'ca\'f5 //\'c6\'e4\'cb\'fb\'c4\'dc\'bf\'e7\'d3\'f2\'b5\'ab\'d3\'d0\'d0\'a9\'bb\'f1\'c8\'a1\'b2\'bb\'b5\'bd\'d0\'c5\'cf\'a2,\'bf\'c9\'d2\'d4\'d6\'aa\'b5\'c0\'d3\'d0\'c3\'bb\'d3\'d0\'b3\'c9\'b9\'a6\par
+\highlight0\tab .\'cd\'bc\'cf\'f1 Ping  //\'cd\'a8\'b9\'fd\cf1 img\cf0\'b1\'ea\'c7\'a9\'b5\'c4\cf1 src\cf0  \'c0\'b4\'bf\'e7\'d3\'f2,\'cd\'a8\'b9\'fd\'bc\'e0\'cc\'fd\par
+\tab\tab\tab img.onload = img.onerror = \'ba\'af\'ca\'fd \'bf\'c9\'d2\'d4\'d6\'aa\'b5\'c0\'cf\'ec\'d3\'a6\'c7\'e9\'bf\'f6\par
+\tab .JSONP   //\'c7\'b0\'cc\'a8\'b4\'ab\'d2\'bb\'b8\'f6\'bb\'d8\'b5\'f7\'ba\'af\'ca\'fd\'b9\'fd\'c8\'a5 ,\'ba\'f3\'cc\'a8\'b1\'e0\'d0\'b4\'d2\'bb\'b8\'f6\'bb\'d8\'b5\'f7\'d0\'c5\'cf\'a2(\'ba\'f3\'cc\'a8\'d3\'d0\'b2\'c5\'d0\'d0)\par
+\tab\tab\tab\'d3\'eb\cf1 script\cf0\'b5\'c4 \cf1 src\cf0  \'d3\'c3\par
+\tab\tab\'b5\'d8\'d6\'b7?callback=\'ba\'af\'ca\'fd\par
+\tab\tab\'ba\'af\'ca\'fd(\'ba\'f3\'cc\'a8\'b4\'ab\'bb\'d8\'b5\'c4\'d6\'b5)\{\'b4\'fa\'c2\'eb...\}\par
+\tab\tab\'b7\'bd\'b7\'a8\'bf\'b4\'b4\'fa\'c2\'eb\'c7\'f8\highlight2\par
+\highlight0\tab .Comet  //\'b7\'fe\'ce\'f1\'c6\'f7\'cd\'c6\'cb\'cd\par
+\tab\tab\par
+\tab\tab\par
+=====================================================================\par
+\'b6\'f8\'cd\'e2\'d6\'aa\'ca\'b6: \tab xhr.responseText  xhr.responseXML //\'d5\'e2\'d6\'d6\'c0\'e0\'d0\'cd\'b5\'c4\'b7\'c5\'bb\'d8\'d6\'b5\par
+\tab\tab ie\'bc\'e6\'c8\'dd\tab\'b5\'c4\'ce\'ca\'cc\'e2\par
+\tab\tab\par
+\par
+-------------------------------------------------------------------\par
+1.\'ca\'d3\'c6\'b5,\'cc\'da\'d1\'b6=> \'bf\'ec\'cb\'d9\'c8\'eb\'c3\'c5JavaScript\'d4\'ad\'c9\'faAjax  \'c0\'cf\'ca\'a6 \'c3\'d7\'cb\'b9\'cc\'d8\'ce\'e2\par
+\'c6\'e4\'cb\'fb\'c0\'e0\'cb\'c6\'bc\'bc\'ca\'f5/\'bf\'e2\par
+\cf1 jQuery\par
+\cf0 Axios   Superagent   Fetch   API   Prototupe   Node HTTP\par
+\cf1 .\'b0\'b2\'d7\'b0XAMPP\tab\tab\cf0\'b0\'d1\'b1\'be\'b5\'d8\'bd\'a8\'b3\'c9\'d2\'bb\'b8\'f6\'b7\'fe\'ce\'f1\'c6\'f7!\'d5\'e2\'d1\'f9\'be\'cd\'bf\'c9\'d2\'d4\'d4\'da3\'cd\'ac\'cf\'c2,\'b7\'c3\'ce\'ca\cf1\par
+.ajax\'c7\'eb\'c7\'f3Github\'d5\'e6\'ca\'b5api\'bd\'d3\'bf\'da\par
+\cf0\tab 1.github\'cd\'f8\'d6\'b7:{{\field{\*\fldinst{HYPERLINK https://api.github.com/users }}{\fldrslt{https://api.github.com/users\ul0\cf0}}}}\f0\fs22\par
+\cf1 .\'cd\'ac\'d3\'f2\'cf\'c2 php\'c7\'eb\'c7\'f3\\\'b4\'bf\'ce\'c4\'b1\'betext\\json\'ce\'c4\'bc\'fe\\js\\xml....\par
+\cf0\tab 1.\'d7\'a2\'d2\'e2\'b5\'e3\'ca\'c7!php\'c0\'ef\'c3\'e6\'d2\'aa\'be\'df\'cc\'e5\'d0\'b4\'d3\'c3\'ca\'b2\'c3\'b4\'b7\'bd\'b7\'a8\'bb\'f1\'c8\'a1,\cf1\par
+-------------------------------------------------------------------------\par
+\cf0\'b2\'e2\'ca\'d4\'bb\'b7\'be\'b3 \'d2\'aa\'d4\'da\'b7\'fe\'ce\'f1\'c6\'f7\'c9\'cf\'b2\'c5\'d0\'d0  \'d3\'c3\cf1 mamp\cf0\'c0\'b4\par
+Ajax\'b5\'b1\'b3\'c9\cf1 XMLHttpRequest\cf0\'b6\'d4\'cf\'f3\'b5\'c4\'b4\'fa\'c3\'fb\'b4\'ca  (IE5\'ba\'cdIE6\'b3\'fd\'cd\'e2) \'c6\'e4\'d6\'d0\'b6\'d4IE6\'d2\'d4\'cf\'c2\'b5\'c4\'bc\'e6\'c8\'dd\'c1\'cb\'bd\'e2\'d2\'d4\'cf\'c2\par
+\tab\'d3\'c3\'bb\'a7 => ajax\'d2\'fd\'c7\'e6 =>\'b7\'fe\'ce\'f1\'b6\'cb\par
+\par
+\cf1\'d7\'a2\'d2\'e2\'b5\'e3:\cf0\par
+\tab ajax\'b1\'be\'c9\'ed\'b2\'bb\'bb\'e1\'d7\'d4\'bc\'ba\'c8\'a5\'bd\'e2\'ce\'f6\'b1\'e0\'c2\'eb,\'b8\'df\'bc\'b6\'e4\'af\'c0\'c0\'c6\'f7\'bb\'e1\'d7\'d4\'b6\'af\'bd\'e2\'ce\'f6\'b1\'e0\'c2\'eb!\'cb\'f9\'d2\'d4\'b5\'b1\'b4\'ab\'b5\'dd\'ca\'c7\'d6\'d0\'ce\'c4\'b5\'c4\'ca\'b1\'ba\'f2\'d7\'a2\'d2\'e2\'c1\'cb,\'b5\'cd\'bc\'b6\'e4\'af\'c0\'c0\'c6\'f7\'b2\'bb\'bb\'e1\'d7\'d4\'b6\'af\'c8\'a5\'bd\'e2\'ce\'f6\'b1\'e0\'c2\'eb,\'cb\'f9\'d2\'d4\'d2\'aa\'b0\'ef\'c3\'a6\par
+\tab\cf1 encodeURLComponent('\'d6\'d0\'ce\'c4')  \cf0 //\'b6\'d4\'c7\'eb\'c7\'f3\'ca\'fd\'be\'dd\'bd\'f8\'d0\'d0\'b1\'e0\'c2\'eb(\'b0\'ef\'d6\'fa\'e4\'af\'c0\'c0\'c6\'f7\'b1\'e0\'c2\'eb)\par
+\par
+\par
+3.\'d0\'c2\'b5\'c4\'bc\'b8\'b8\'f6\'b6\'ab\'ce\'f7\par
+\tab\cf1 1.xhr.onload = \'ba\'af\'ca\'fd   \cf0 // \'d6\'b4\'d0\'d0\'d5\'e2\'b8\'f6\'b7\'bd\'b7\'a8\'d2\'bb\'b6\'a8\'ca\'c7\'bd\'f8\'c8\'a5\'b5\'bd 4 \'d5\'e2\'b2\'bd\'b5\'c4\par
+\tab\cf1 2.xhr.onprogress = \'ba\'af\'ca\'fd \cf0 //\'d6\'b4\'d0\'d0\'cf\'df\'b3\'cc\'d4\'da 3 \'d5\'e2\'c0\'ef,\'b1\'c8\'c8\'e7\'d4\'da3\'bb\'b9\'c3\'bb\'bc\'d3\'d4\'d8\'cd\'ea\'ca\'b1\'ba\'f2\'b8\'c9\'ca\'b2\'c3\'b4\par
+\cf1\tab 3.responseText   \cf0 //\'b4\'bf\'ce\'c4\'b1\'be  \'bb\'b9\'d3\'d0\'c6\'e4\'cb\'fb\'c0\'e0\'d0\'cd\'b5\'c4\par
+\par
+}
+ 

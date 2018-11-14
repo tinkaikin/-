@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>promise与ajax.html</title>
+</head>
+<body>
+    <h1>改天再测试,好像要在服务器上才能发送ajax请求</h1>
+    <button id="点击">点击</button>
+    <div id="显示内容"></div>
+    <script>
+
+       
+
+
+
+        // const 请求地址 = (url,POST时候) => {
+        //     return new Promise((resolve函数, reject函数) => {
+        //         let ajax = new XMLHttpRequest();
+        //         ajax.open("GET", url);
+        //         ajax.onreadystatechange = 状态;
+        //         ajax.responseType = "json";
+        //         ajax.setRequestHeader("Accept", "application/json");
+        //         ajax.send(POST时候);
+        //         function 状态() {
+        //             if(ajax.readyState == 4 && ajax.status == 200) {
+        //                 let res = JSON.parse(this.response)
+        //                 console.log(res);
+        //                 resolve函数(res);    //成功输出response内容 格式为JSON
+        //             }else {
+        //                 reject函数(new Error(this.statusText)); //显示404,或其他的
+        //             }
+        //         }
+
+        //     })
+        // }
+        // window.onload = function() {
+        //     const but = document.getElementById("点击");
+        //     const 显示内容 = document.getElementById("显示内容");
+        //     but.onclick = function () {
+        //         //请求
+        //         请求地址("../ajax/demo.text").then(res => {
+        //             console.log(res);    //res == this.response
+        //             显示内容.innerHTML = res;
+        //         }).catch(err =>{
+        //             console.log(err);
+        //         })
+        //     }
+        // }
+
+
+        window.onload = function() {
+            const but = document.getElementById("点击");
+            const 显示内容 = document.getElementById("显示内容");
+            but.onclick = function () {
+                let ajax = new XMLHttpRequest();
+                    ajax.open("GET", "../ajax/demo.text");
+                    ajax.send();
+                    ajax.onreadystatechange = function() {
+                        if(ajax.readyState == 4 && ajax.status == 200) {
+                                let res = JSON.parse(this.responseText)
+                                console.log(res);
+                            }else {
+                                new Error(this.statusText); //显示404,或其他的
+                            }
+                    };
+            }
+        }
+
+
+
+
+        
+    </script>
+</body>
+</html>
+<!-- 
+    promise 对象是一个构造函数，用来生成Promise实例。
+    单独使用时简单的 异步操作  resolve函数可以不用传参数!默认隐式传参
+
+    如果结合ajax,则进一步优化了异步请求 这个时候就要穿参了 把 response 传过去
+
+    Promise实例生成以后，可以用then方法分别指定resolved状态和rejected状态的回调函数。
+        任何只要是 promise对象都可以使用 then方法
+
+
+ -->

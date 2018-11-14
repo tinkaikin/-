@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <div id="baner">
+        <h1>卖鞋的</h1>
+        <div>
+            <div id="下拉框">
+                <label for="下拉">请选择款式</label>
+                <select name="model" id="下拉"></select>
+            </div>
+            <div id="产品详细信息"></div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function(){
+        //一进来就请求
+        $('#下拉').load('actions/fetch-boot-style-option.php')
+
+        //当下拉框选项变化的时候
+        $('#下拉').change(function(e) {
+            $('#产品详细信息').load('fetch-boot-style-option.php'),
+            {
+                model: $(e.target).val()
+            },
+            function() {
+                $('[vlaue=""]',e.target).remove(); //第三个参数 删除占位符
+            }
+        })
+    })
+</script>
+</html>

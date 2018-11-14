@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <form action="发送的地址">
+        账号: <input type="text" name='us' id="登入账号">
+        <br>
+        密码: <input type="password" name='ps' id="密码">
+        <br>
+        <input type="button" value="登陆">
+    </form>
+</body>
+<script>
+    $(function() {
+        $(':button').click(function() {
+            // let val = $(':text').val()
+            // let pas = $(':password').val()
+            // console.log(val,pas)
+            //异步的表单提交 会把name的值传到后台进行匹配
+            let text = window.prompt("请输入用户名")
+            $('form').ajaxSubmit(function(data) {  
+                if(data == 返回值) {
+                  window.location.href = "http://www.baidu.com"
+                } else{
+                    alert("错误")
+                } //判断返回值
+            })
+        })
+    })
+</script>
+</html>

@@ -1,0 +1,48 @@
+
+新机上
+	1.$ npm install create-react-app -g  
+
+		用npm 安装 react 构建工具到全局  : 这样就可以在计算机任何地方使用 react的命令了 可以直接省略 npm
+上面可跳过
+	2.$ npm create-react-app demo文件名称
+	
+		进入到你要创建的文件夹下 运行上面的命令
+
+	;;这样就会在当前目录下创建一个名字叫demo 的react开发环境
+
+	::会生成 package.json	package-lock.json   node_modules    public    src
+
+
+	3.$ 按他提示的 cd demo 进入文件目录下
+
+	4.$ 按他提示的 npm start 运行自动打开 react
+
+	其他	$  cls  :清空
+		$  npm build	:完成项目后编译打包
+
+
+
+
+方法2 官方文档是直接 
+
+	npx create-react-app my-app名字
+	cd my-app
+
+	npm start
+
+
+
+1.安装 Webpack：npm install -g webpack
+
+2.Webpack 使用一个名为 webpack.config.js 的配置文件，要编译 JSX，先安装对应的 loader: npm install babel-loader --save-dev
+
+3.监听编译: webpack -d --watch
+
+
+
+
+
+推荐下载的东西
+---------------------------------------------
+
+1.建议你下载Notepad++代替记事本

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./兼容浏览器的CORS.js"></script>
+</head>
+<body>
+    <div>12131</div>
+    <input type="text" value="" id="kk">
+</body>
+<script>
+    let div = document.getElementById('kk');
+    let url = 'http://m.ctrip.com/restapi/h5api/searchapp/search?action=autocomplete&source=globalonline';
+    div.onblur = function() {
+        let lav = div.value;
+        // 跨域请求(请求类型, url, 回调函数, 失败函数)
+        跨域请求('get', url+'&'+lav, function(data) {
+            let data1 = JSON.parse(data);
+            哈哈(data1.data);
+        }, function() {
+            alert('s失败')
+        })
+    }
+    function 哈哈(array){
+        array.forEach(element => {
+            console.log(element.word,element.url)
+        });
+    }
+</script>
+</html>
+
+<!-- 
+    结果是可以请求到的
+
+ -->
