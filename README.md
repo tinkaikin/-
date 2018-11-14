@@ -1,14 +1,10 @@
-#一定要这个名字了 README.md
+# 我是初学者  README.md
 
-``js
-    div
 ``
-
-..js
-div
-..
-
+    div 代码加亮
+``
 ```js
+//js代码区
     div 
     class
     //
